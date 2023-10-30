@@ -12,7 +12,8 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """Initialize BaseModels instance"""
         if kwargs:
-            # For each key in the dictionary, set the attribute with the associated value.
+            # For each key in the dictionary, set the attribute with \
+            # the associated value.
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
                     # Convert string datetime to datetime object.
