@@ -3,8 +3,7 @@
 
 import uuid
 from datetime import datetime
-from . import storage
-from .engine.file_storage import FileStorage
+from __init__ import storage
 
 
 class BaseModel:
@@ -36,8 +35,6 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            storage = FileStorage()
-            storage.reload()
 
     def __str__(self):
         """Returns class, Id and dictionary"""
