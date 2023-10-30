@@ -2,8 +2,6 @@
 """FileStorage Module"""
 
 import json
-from os import path
-from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -31,7 +29,7 @@ class FileStorage:
         """Deserializes the JSON file to __objects"""
         try:
             with open(FileStorage.__file_path, 'r') as f:
-                FileStorage.__object = {key: self.__models()
+                FileStorage.__objects = {key: self.__models()
                                         [value["__class__"]](**value)
                                         for key, value in json.load(f).items()}
         except FileNotFoundError:
