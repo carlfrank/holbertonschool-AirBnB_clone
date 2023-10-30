@@ -14,7 +14,7 @@ class BaseModel:
             # For each key in the dictionary, set the attribute with the associated value.
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
-                # Convert string datetime to datetime object.
+                    # Convert string datetime to datetime object.
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                 if key != "__class__":
                     setattr(self, key, value)
@@ -34,15 +34,15 @@ class BaseModel:
             self.updated_at = datetime.now()
 
     def __str__(self):
-        """print a string"""
+        """Returns class, Id and dictionary"""
         return f"[{self.__class__.__name__}] ({self.id}) ({self.__dict__})"
 
     def save(self):
-        """Saves info"""
+        """Saves current time to updated_at"""
         self.updated_at = datetime.now()
 
     def to_dict(self):
-        """creates a dictionary and turns them into a dictionary"""
+        """Create a dictionary and save current data in it"""
         class_dict = dict(self.__dict__)
         class_dict["__class__"] = self.__class__.__name__
         class_dict["created_at"] = self.created_at.isoformat()
