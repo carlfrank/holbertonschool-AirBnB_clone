@@ -3,7 +3,6 @@
 
 import json
 from os import path
-from . import storage
 
 
 class FileStorage:
@@ -23,7 +22,8 @@ class FileStorage:
     def save(self):
         """Serializes __objects to the JSON file"""
         with open(FileStorage.__file_path, 'w') as f:
-            dict_obj = {key: value.to_dict() for key, value in FileStorage.__objects.items()}
+            dict_obj = {key: value.to_dict()
+                        for key, value in FileStorage.__objects.items()}
             json.dump(dict_obj, f)
 
     def reload(self):
