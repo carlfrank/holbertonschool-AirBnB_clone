@@ -5,9 +5,9 @@ import uuid
 from datetime import datetime
 
 
-class BaseModels:
+class BaseModel:
     """BaseModels class"""
-    id = uuid.uuid4
+    id = uuid.uuid4()
     created_at = datetime.now()
     updated_at = datetime.now()
 
