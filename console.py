@@ -29,6 +29,25 @@ class HBNBCommand(cmd.Cmd):
         """Does nothing when receiving an empty line followed by ENTER."""
         pass
 
+    def create(self):
+        """Creates a new instance of BaseModel, saves it to JSON file and prints the id."""
+        pass
+
+    def show(self):
+        """Prints the string representation of an instance based on the class name and id."""
+        pass
+
+    def destroy(self):
+        """Deletes an instance based on the class name and id (save the change into the JSON file)."""
+        pass
+
+    def all(self):
+        """Prints all string representation of all instances based or not on the class name."""
+        pass
+
+    def update(self):
+        """Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file)."""
+        pass
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
