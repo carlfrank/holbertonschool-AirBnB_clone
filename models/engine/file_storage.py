@@ -4,20 +4,14 @@
 import json
 from os import path
 from models.base_model import BaseModel
-from models import User
-from models import Place
 
 
 class FileStorage:
     """FileStorage class to serialize and deserialize instances"""
     __file_path = "file.json"
     __objects = {}
+    CLASS_DICT = {"BaseModel": BaseModel}
 
-    CLASS_DICT = {
-    "BaseModel": BaseModel,
-    "User": User,
-    "Place": Place,
-}
     def all(self):
         """Returns the dictionary __objects"""
         return FileStorage.__objects
