@@ -2,6 +2,10 @@
 """FileStorage Module"""
 
 import json
+from os import path
+from models.base_model import BaseModel
+from models import User
+from models import Place
 
 
 class FileStorage:
@@ -9,6 +13,11 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
+    CLASS_DICT = {
+    "BaseModel": BaseModel,
+    "User": User,
+    "Place": Place,
+}
     def all(self):
         """Returns the dictionary __objects"""
         return FileStorage.__objects
@@ -27,10 +36,12 @@ class FileStorage:
 
     def reload(self):
         """Deserializes the JSON file to __objects"""
-        try:
+        if path.exists(FileStorage.__file_path):
             with open(FileStorage.__file_path, 'r') as f:
-                FileStorage.__objects = {key: self.__models()
-                                         [value["__class__"]](**value) for
-                                         key, value in json.load(f).items()}
-        except FileNotFoundError:
-            pass
+                objs = json.load(f)
+            for key, value in objs.items():
+                cls_name = value["__class__"]
+                cls = FileStorage.CLASS_DICT.get(cls_name)
+                if cls:
+                    instance = cls(**value)
+                    FileStorage.__objects[key] = instance
