@@ -4,6 +4,7 @@
 import cmd
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
+from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -31,40 +32,141 @@ class HBNBCommand(cmd.Cmd):
         """Does nothing when receiving an empty line followed by ENTER."""
         pass
 
-    def create(self, args):
+    def do_create(self, args):
         """Creates a new instance of BaseModel,
         saves it to JSON file and prints the id."""
         # if para chequiar si uso el command solo
         if not args:
             print("** class name missing **")
+            return
         # if para chequiar si lo que esta creando ya existe
-        if args is not BaseModel or args is not FileStorage:
+        args_list = args.split()
+        if args_list[0] not in FileStorage.CLASS_DICT:
             print("** class doesn't exist **")
-        else:
+            return
+        instance = FileStorage.CLASS_DICT[args_list[0]]()
+        instance.save()
+        print(instance.id)
 
-
-
-
-
-    def show(self):
+    def do_show(self, args):
         """Prints the string representation of an instance
         based on the class name and id."""
-        pass
+        args = args.split()
+        class_name = args[0] if args else None
+        instance_id = args[1] if len(args) > 1 else None
+        if class_name is None:
+            print("** class name missing **")
+            return
+        if class_name not in FileStorage.CLASS_DICT:
+            print("** class doesn't exist **")
+            return
+        if instance_id is None:
+            print("** instance id missing **")
+            return
+        key = "{}.{}".format(class_name, instance_id)
+        if key not in storage._FileStorage__objects:
+            print("** no instance found **")
+            return
+        print(storage._FileStorage__objects[key])
 
-    def destroy(self):
+    def do_destroy(self, args):
         """Deletes an instance based on the class name and id
         (save the change into the JSON file)."""
-        pass
+        args = args.split()
+        class_name = args[0] if args else None
+        instance_id = args[1] if len(args) > 1 else None
+        # Checking if class name is provided
+        if class_name is None:
+            print("** class name missing **")
+            return
+        # Checking if class name exists in our CLASS_DICT
+        if class_name not in FileStorage.CLASS_DICT:
+            print("** class doesn't exist **")
+            return
+        # Checking if instance id is provided
+        if instance_id is None:
+            print("** instance id missing **")
+            return
+        # Check if the instance with the given id exists
+        key = "{}.{}".format(class_name, instance_id)
+        if key not in storage._FileStorage__objects:
+            print("** no instance found **")
+            return
+        # If all checks pass, delete the instance and save changes
+        del storage._FileStorage__objects[key]
+        FileStorage().save()
 
-    def all(self):
+    def do_all(self, args):
         """Prints all string representation of all instances based
         or not on the class name."""
-        pass
+        args = args.split()
+        class_name = args[0] if args else None
+        objs_to_print = []
+        # If class name is provided but it doesn't exist in our CLASS_DICT
+        if class_name and class_name not in FileStorage.CLASS_DICT:
+            print("** class doesn't exist **")
+            return
+        # Loop through all stored objects
+        for key, value in storage._FileStorage__objects.items():
+            if not class_name or key.split(".")[0] == class_name:
+                objs_to_print.append(str(value))
+        print(objs_to_print)
 
-    def update(self):
+    def do_update(self, args):
         """Updates an instance based on the class name and id by adding
         or updating attribute (save the change into the JSON file)."""
-        pass
+        args = args.split()
+        class_name = args[0]
+        id = args[1]
+        attribute_name = args[2]
+        attribute_value = args[3]
+        if len(args) < 4:
+            if class_name is None:
+                print("** class name missing **")
+                return
+            if id is None:
+                print("** instance id missing **")
+                return
+            if attribute_name is None:
+                print("** attribute name missing **")
+                return
+            if attribute_value is None:
+                print("** value missing **")
+                return
+        else:
+            # Check if class name is missing
+            if not class_name:
+                print("** class name missing **")
+                return
+            # Check if class exists
+            if class_name not in FileStorage.CLASS_DICT:
+                print("** class doesn't exist **")
+                return
+            # Check if id is missing
+            if not id:
+                print("** instance id missing **")
+                return
+            key = "{}.{}".format(class_name, id)
+            instance = storage._FileStorage__objects.get(key)
+            # Check if instance exists
+            if not instance:
+                print("** no instance found **")
+                return
+            # Check if attribute name is missing
+            if not attribute_name:
+                print("** attribute name missing **")
+                return
+            # Check if attribute value is missing
+            if attribute_value is None:
+                print("** value missing **")
+                return
+            # Cast attribute value to appropriate type
+            attr = getattr(instance, attribute_name, None)
+            if type(attr) in [int, float]:
+                attribute_value = type(attr)(attribute_value)
+            # Set the attribute and save
+            setattr(instance, attribute_name, attribute_value)
+            instance.save()
 
 
 if __name__ == '__main__':
