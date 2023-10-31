@@ -115,58 +115,23 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, args):
         """Updates an instance based on the class name and id by adding
         or updating attribute (save the change into the JSON file)."""
-        args = args.split()
-        class_name = args[0]
-        id = args[1]
-        attribute_name = args[2]
-        attribute_value = args[3]
-        if len(args) < 4:
-            if class_name is None:
-                print("** class name missing **")
-                return
-            if id is None:
-                print("** instance id missing **")
-                return
-            if attribute_name is None:
-                print("** attribute name missing **")
-                return
-            if attribute_value is None:
-                print("** value missing **")
-                return
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args.split()[0] != "BaseModel":
+            print("** class doesn't exist **")
+        elif len(args.split()) == 1:
+            print("** instance id missing **")
+        elif len(args.split()) == 2:
+            print("** attribute name missing **")
+        elif len(args.split()) == 3:
+            print("** value missing **")
         else:
-            # Check if class name is missing
-            if not class_name:
-                print("** class name missing **")
-                return
-            # Check if class exists
-            if class_name not in FileStorage.CLASS_DICT:
-                print("** class doesn't exist **")
-                return
-            # Check if id is missing
-            if not id:
-                print("** instance id missing **")
-                return
-            key = "{}.{}".format(class_name, id)
-            instance = storage._FileStorage__objects.get(key)
-            # Check if instance exists
-            if not instance:
+            key = args.split()[0] + "." + args.split()[1]
+            if key in storage.all():
+                setattr(storage.all()[key], args.split()[2], args.split()[3])
+                storage.save()
+            else:
                 print("** no instance found **")
-                return
-            # Check if attribute name is missing
-            if not attribute_name:
-                print("** attribute name missing **")
-                return
-            # Check if attribute value is missing
-            if attribute_value is None:
-                print("** value missing **")
-                return
-            # Cast attribute value to appropriate type
-            attr = getattr(instance, attribute_name, None)
-            if type(attr) in [int, float]:
-                attribute_value = type(attr)(attribute_value)
-            # Set the attribute and save
-            setattr(instance, attribute_name, attribute_value)
-            instance.save()
 
 
 if __name__ == '__main__':
