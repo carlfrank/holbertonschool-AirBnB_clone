@@ -2,7 +2,8 @@
 """This module contains the entry point of the command interpreter."""
 
 import cmd
-import models
+from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -30,10 +31,20 @@ class HBNBCommand(cmd.Cmd):
         """Does nothing when receiving an empty line followed by ENTER."""
         pass
 
-    def create(self):
+    def create(self, args):
         """Creates a new instance of BaseModel,
         saves it to JSON file and prints the id."""
-        pass
+        # if para chequiar si uso el command solo
+        if not args:
+            print("** class name missing **")
+        # if para chequiar si lo que esta creando ya existe
+        if args is not BaseModel or args is not FileStorage:
+            print("** class doesn't exist **")
+        else:
+
+
+
+
 
     def show(self):
         """Prints the string representation of an instance
