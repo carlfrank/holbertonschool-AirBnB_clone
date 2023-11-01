@@ -18,10 +18,10 @@ class TestFileStorage(unittest.TestCase):
         if os.path.exists(self.file_path):
             os.remove(self.file_path)
 
-    def tearDown(self):
-        """Clean up tasks."""
-        if os.path.exists(self.file_path):
-            os.remove(self.file_path)
+    # def tearDown(self):
+    #     """Clean up tasks."""
+    #     if os.path.exists(self.file_path):
+    #         os.remove(self.file_path)
 
     def test_all(self):
         """Test that 'all' returns the dictionary of objects."""
