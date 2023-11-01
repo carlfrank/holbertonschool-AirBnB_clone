@@ -42,7 +42,6 @@ class FileStorage:
                     instance = cls(**value)
                     FileStorage.__objects[key] = instance
 
-
     def create_user(args):
         """Create a new User instance."""
         new_user = User()
