@@ -1,59 +1,45 @@
 #!/usr/bin/python3
-"""Unittest Base File Storage"""
 
 import unittest
-import json
-import os
-from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
 
 
 class TestFileStorage(unittest.TestCase):
 
     def setUp(self):
-        """Set up test methods."""
+        """Set up test environment"""
         self.storage = FileStorage()
-        self.file_path = FileStorage._FileStorage__file_path
-        # Make sure to start with a clean slate for each test
-        if os.path.exists(self.file_path):
-            os.remove(self.file_path)
-
-    # def tearDown(self):
-    #     """Clean up tasks."""
-    #     if os.path.exists(self.file_path):
-    #         os.remove(self.file_path)
+        self.obj = BaseModel()
+        self.obj.id = "123"
 
     def test_all(self):
-        """Test that 'all' returns the dictionary of objects."""
-        returned_objects = self.storage.all()
-        self.assertIsInstance(returned_objects, dict)
+        """Test all method"""
+        self.assertIsInstance(self.storage.all(), dict)
 
     def test_new(self):
-        """Test that 'new' correctly adds objects."""
-        test_model = BaseModel()
-        self.storage.new(test_model)
-        key = f"{type(test_model).__name__}.{test_model.id}"
+        """Test new method"""
+        self.storage.new(self.obj)
+        key = self.obj.__class__.__name__ + "." + self.obj.id
         self.assertIn(key, self.storage.all())
 
     def test_save(self):
-        """Test that 'save' correctly serializes objects to file."""
-        test_model = BaseModel()
-        self.storage.new(test_model)
+        """Test save method"""
+        self.storage.new(self.obj)
         self.storage.save()
-        self.assertTrue(os.path.exists(self.file_path))
-        with open(self.file_path, 'r') as f:
-            objects = json.load(f)
-            key = f"{type(test_model).__name__}.{test_model.id}"
-            self.assertIn(key, objects)
+        key = self.obj.__class__.__name__ + "." + self.obj.id
+        with open(self.storage._FileStorage__file_path, "r") as f:
+            self.assertIn(key, f.read())
 
     def test_reload(self):
-        """Test that 'reload' correctly deserializes objects from file."""
-        test_model = BaseModel()
-        self.storage.new(test_model)
+        """Test reload method"""
+        self.storage.new(self.obj)
         self.storage.save()
+        self.storage._FileStorage__objects = {}
         self.storage.reload()
-        key = f"{type(test_model).__name__}.{test_model.id}"
+        key = self.obj.__class__.__name__ + "." + self.obj.id
         self.assertIn(key, self.storage.all())
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     unittest.main()
