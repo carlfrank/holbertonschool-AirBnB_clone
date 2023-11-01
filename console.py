@@ -138,5 +138,6 @@ class HBNBCommand(cmd.Cmd):
         setattr(storage.all()[key], args_list[2], args_list[3].strip("\""))
         storage.save()
 
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
