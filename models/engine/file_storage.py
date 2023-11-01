@@ -42,10 +42,9 @@ class FileStorage:
                     instance = cls(**value)
                     FileStorage.__objects[key] = instance
 
-
     def create_user(args):
         """Create a new User instance."""
         new_user = User()
-        new_user.save()  # Assuming BaseModel has a save method to update storage
+        new_user.save()  # Assuming BaseModel has a
+        # save method to update storage
         print("User created with ID:", new_user.id)
-
