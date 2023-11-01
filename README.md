@@ -11,36 +11,38 @@ You can use the AirBnB clone console in two ways: interactive mode and non-inter
 To open the interpreter, you must run the code in interactive mode. To run it you type in the terminal ./console.py and it will be in interactive mode.
 
 holbertonschool-AirBnB_clone$ ./console.py
+
 (hbnb) help
+
 Documented commands (type help <topic>):
-========================================
+
 EOF all create destroy help quit show update
 
-    (hbnb) help show
-    Prints the string representation of an instance
-        based on the class name and id.
+(hbnb) help show
+Prints the string representation of an instance
+based on the class name and id.
 
-    (hbnb) help all
-    Prints all string representation of all instances based
-        or not on the class name.
+(hbnb) help all
+Prints all string representation of all instances based
+or not on the class name.
 
-    (hbnb) all
-    []
+(hbnb) all
+[]
 
-    (hbnb) all BaseModel
-    []
+(hbnb) all BaseModel
+[]
 
-    (hbnb) create Basemodel
-    ** class doesn't exist **
+(hbnb) create Basemodel
+** class doesn't exist **
 
-    (hbnb) create BaseModel
-    876b98f1-58a6-4876-9b19-93bfdc67f0f8
+(hbnb) create BaseModel
+876b98f1-58a6-4876-9b19-93bfdc67f0f8
 
-    (hbnb) all BaseModel
-    ["[BaseModel] (876b98f1-58a6-4876-9b19-93bfdc67f0f8) ({'id': '876b98f1-58a6-4876-9b19-93bfdc67f0f8', 'created_at': datetime.datetime(2023, 11, 1, 15, 43, 51, 289859), 'updated_at': datetime.datetime(2023, 11, 1, 15, 43, 51, 289890)})"]
+(hbnb) all BaseModel
+["[BaseModel] (876b98f1-58a6-4876-9b19-93bfdc67f0f8) ({'id': '876b98f1-58a6-4876-9b19-93bfdc67f0f8', 'created_at': datetime.datetime(2023, 11, 1, 15, 43, 51, 289859), 'updated_at': datetime.datetime(2023, 11, 1, 15, 43, 51, 289890)})"]
 
-    (hbnb)EOF
-    guillep2018@guillep2018-ThinkPad-X1-Carbon-Gen-9:~/Desktop/coding-fridays/holbertonschool-AirBnB_clone$
+(hbnb)EOF
+guillep2018@guillep2018-ThinkPad-X1-Carbon-Gen-9:~/Desktop/coding-fridays/holbertonschool-AirBnB_clone$
 
 ### What can you do?
 
