@@ -10,7 +10,7 @@ You can use the AirBnB clone console in two ways: interactive mode and non-inter
 
 To open the interpreter, you must run the code in interactive mode. To run it you type in the terminal ./console.py and it will be in interactive mode.
 
-guillep2018@guillep2018-ThinkPad-X1-Carbon-Gen-9:~/Desktop/coding-fridays/holbertonschool-AirBnB_clone$ ./console.py
+holbertonschool-AirBnB_clone$ ./console.py
 (hbnb) help
 Documented commands (type help <topic>):
 ========================================
