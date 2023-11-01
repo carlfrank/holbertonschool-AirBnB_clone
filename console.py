@@ -34,17 +34,6 @@ class HBNBCommand(cmd.Cmd):
     def create(self, args):
         """Creates a new instance of BaseModel,
         saves it to JSON file and prints the id."""
-        # if para chequiar si uso el command solo
-        if not args:
-            print("** class name missing **")
-        # if para chequiar si lo que esta creando ya existe
-        if args is not BaseModel or args is not FileStorage:
-            print("** class doesn't exist **")
-        else:
-
-
-
-
 
     def show(self):
         """Prints the string representation of an instance
