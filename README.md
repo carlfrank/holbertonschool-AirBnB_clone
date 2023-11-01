@@ -49,12 +49,19 @@ guillep2018@guillep2018-ThinkPad-X1-Carbon-Gen-9:~/Desktop/coding-fridays/holber
 There are several command you can run with this interpreter and they are as follows.
 
 -help = lists all available commands with "help" or detailed help with "help cmd"
+
 -EOF = EOF command to exit the program
+
 -all = prints all string representations of all instances based on the class name
+
 -create = creates a new instance of BaseModel, saves it to the JSON file and prints the ID
+
 -destroy = deletes an instance based on the class name and id (saves the change into the JSON file)
+
 -quit = quit command to exit the program
+
 -show = prints the string representation of an instance based on the class name and id
+
 -update = updates an instance based on the class name and id by adding or updating attribute (saves the change into the JSON file)
 
 ## Examples
