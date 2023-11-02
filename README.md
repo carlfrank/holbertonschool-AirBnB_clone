@@ -8,6 +8,8 @@ You can use the AirBnB clone console in two ways: interactive mode and non-inter
 
 ## How do you open the interpreter
 
+```bash
+
 To open the interpreter, you must run the code in interactive mode. To run it you type in the terminal ./console.py and it will be in interactive mode.
 
 holbertonschool-AirBnB_clone$ ./console.py
@@ -43,26 +45,30 @@ or not on the class name.
 
 (hbnb)EOF
 guillep2018@guillep2018-ThinkPad-X1-Carbon-Gen-9:~/Desktop/coding-fridays/holbertonschool-AirBnB_clone$
+```
 
 ## What can you do?
 
+```bash
 There are several command you can run with this interpreter and they are as follows.
 
--help = lists all available commands with "help" or detailed help with "help cmd"
+-`help` = lists all available commands with "help" or detailed help with "help cmd"
 
--EOF = EOF command to exit the program
+-`EOF` = EOF command to exit the program
 
--all = prints all string representations of all instances based on the class name
+-`all` = prints all string representations of all instances based on the class name
 
--create = creates a new instance of BaseModel, saves it to the JSON file and prints the ID
+-`create` = creates a new instance of BaseModel, saves it to the JSON file and prints the ID
 
--destroy = deletes an instance based on the class name and id (saves the change into the JSON file)
+-`destroy` = deletes an instance based on the class name and id (saves the change into the JSON file)
 
--quit = quit command to exit the program
+-`quit` = quit command to exit the program
 
--show = prints the string representation of an instance based on the class name and id
+-`show` = prints the string representation of an instance based on the class name and id
 
--update = updates an instance based on the class name and id by adding or updating attribute (saves the change into the JSON file)
+-`update` = updates an instance based on the class name and id by adding or updating attribute (saves the change into the JSON file)
+
+```
 
 ## Examples
 
@@ -97,9 +103,7 @@ Updates an instance based on the class name and id by adding
         or updating attribute (save the change into the JSON file)
 (hbnb) quit
 $
-```
 
-```bash
 $ ./console.py
 (hbnb) all
 []
