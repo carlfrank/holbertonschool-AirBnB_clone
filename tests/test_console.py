@@ -1,7 +1,10 @@
+#!/usr/bin/python3
+
 import unittest
 from unittest.mock import patch, create_autospec
 from io import StringIO
 from your_module import HBNBCommand, BaseModel, FileStorage
+
 
 class TestHBNBCommand(unittest.TestCase):
     def setUp(self):
