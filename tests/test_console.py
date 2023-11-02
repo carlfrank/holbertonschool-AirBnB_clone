@@ -1,9 +1,14 @@
 #!/usr/bin/python3
-
-import unittest
+"""import unittest
 from unittest.mock import patch, create_autospec
 from io import StringIO
-from your_module import HBNBCommand, BaseModel, FileStorage
+from import HBNBCommand, BaseModel, FileStorage"""
+
+import unittest
+from models.engine.file_storage import FileStorage
+from console import HBNBCommand
+from io import StringIO
+from unittest.mock import patch
 
 
 class TestHBNBCommand(unittest.TestCase):
