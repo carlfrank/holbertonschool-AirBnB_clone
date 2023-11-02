@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""import unittest
-from unittest.mock import patch, create_autospec
-from io import StringIO
-from import HBNBCommand, BaseModel, FileStorage"""
+"""Unittest for FileStorage class"""
 
 import unittest
+from unittest.mock import patch, create_autospec
+from io import StringIO
+from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from console import HBNBCommand
 from io import StringIO
@@ -12,6 +12,7 @@ from unittest.mock import patch
 
 
 class TestHBNBCommand(unittest.TestCase):
+    """Test for HBNBCommand class"""
     def setUp(self):
         self.cli = HBNBCommand()
 
