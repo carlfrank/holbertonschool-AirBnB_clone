@@ -124,6 +124,37 @@ $ ./console.py
 (hbnb) EOF
 ```
 
+### Non-interactive mode
+
+```bash
+$ echo "help" | ./console.py
+(hbnb)
+Documented commands (type help <topic>):
+========================================
+EOF  all  create  destroy  help  quit  show  update
+
+$ echo "create BaseModel" | ./console.py
+(hbnb) 2bf3b876-a27e-458a-be88-360c6ea97b74
+
+$ echo "show BaseModel 2bf3b876-a27e-458a-be88-360c6ea97b74" | ./console.py
+(hbnb) [BaseModel] (2bf3b876-a27e-458a-be88-360c6ea97b74) ({'id': '2bf3b876-a27e-458a-be88-360c6ea97b74', 'created_at': datetime.datetime(2023, 11, 2, 12, 40, 40, 942131), 'updated_at': datetime.datetime(2023, 11, 2, 12, 40, 40, 942138)})
+
+$ echo "all" | ./console.py
+(hbnb) ["[BaseModel] (2bf3b876-a27e-458a-be88-360c6ea97b74) ({'id': '2bf3b876-a27e-458a-be88-360c6ea97b74', 'created_at': datetime.datetime(2023, 11, 2, 12, 40, 40, 942131), 'updated_at': datetime.datetime(2023, 11, 2, 12, 40, 40, 942138)})"]
+
+$ echo "update BaseModel 2bf3b876-a27e-458a-be88-360c6ea97b74 first_name \"Betty\"" | ./console.py
+(hbnb)
+
+$ echo "show BaseModel 2bf3b876-a27e-458a-be88-360c6ea97b74" | ./console.py
+(hbnb) [BaseModel] (2bf3b876-a27e-458a-be88-360c6ea97b74) ({'id': '2bf3b876-a27e-458a-be88-360c6ea97b74', 'created_at': datetime.datetime(2023, 11, 2, 12, 40, 40, 942131), 'updated_at': datetime.datetime(2023, 11, 2, 12, 40, 40, 942138), 'first_name': 'Betty'})
+
+$ echo "destroy BaseModel 2bf3b876-a27e-458a-be88-360c6ea97b74" | ./console.py
+(hbnb)
+
+$ echo "all" | ./console.py
+(hbnb) []
+```
+
 ## 🛠️ Contributors
 
 - Carlos Carrasquillo \<collectornifty@gmail.com\> \<carlfrank\>
