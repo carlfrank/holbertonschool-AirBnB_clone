@@ -4,6 +4,7 @@ import unittest
 from models.user import User
 from models.base_model import BaseModel
 
+
 class TestUser(unittest.TestCase):
     def setUp(self):
         """ Setup values for testing """
@@ -53,7 +54,8 @@ class TestUser(unittest.TestCase):
 
     def test_str(self):
         """ Test str for the user """
-        expected = f"[{type(self.user2).__name__}] ({self.user2.id}) {self.user2.__dict__}"
+        expected = f"[{type(self.user2).__name__}]
+        ({self.user2.id}) {self.user2.__dict__}"
         self.assertEqual(str(self.user2), expected)
 
     def test_save(self):
