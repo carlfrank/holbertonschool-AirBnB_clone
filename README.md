@@ -66,6 +66,60 @@ There are several command you can run with this interpreter and they are as foll
 
 ## Examples
 
+### Interactive mode
+
+```bash
+$ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  all  create  destroy  help  quit  show  update
+
+(hbnb) help all
+Prints all string representation of all instances based
+        or not on the class name.
+(hbnb) help create
+Creates a new instance of BaseModel,
+        saves it to JSON file and prints the id.
+(hbnb) help destroy
+Deletes an instance based on the class name and id
+        (save the change into the JSON file).
+(hbnb) help help
+List available commands with "help" or detailed help with "help cmd".
+(hbnb) help quit
+Quit command to exit the program
+(hbnb) help show
+Prints the string representation of an instance
+        based on the class name and id.
+(hbnb) help update
+Updates an instance based on the class name and id by adding
+        or updating attribute (save the change into the JSON file)
+(hbnb) quit
+$
+```
+
+```bash
+$ ./console.py
+(hbnb) all
+[]
+(hbnb) create BaseModel
+91bb5832-c974-4fe0-bc8c-232dbf137b68
+(hbnb) show BaseModel 91bb5832-c974-4fe0-bc8c-232dbf137b68
+[BaseModel] (91bb5832-c974-4fe0-bc8c-232dbf137b68) ({'id': '91bb5832-c974-4fe0-bc8c-232dbf137b68', 'created_at': datetime.datetime(2023, 11, 2, 12, 27, 12, 479821), 'updated_at': datetime.datetime(2023, 11, 2, 12, 27, 12, 479844)})
+(hbnb) all
+["[BaseModel] (91bb5832-c974-4fe0-bc8c-232dbf137b68) ({'id': '91bb5832-c974-4fe0-bc8c-232dbf137b68', 'created_at': datetime.datetime(2023, 11, 2, 12, 27, 12, 479821), 'updated_at': datetime.datetime(2023, 11, 2, 12, 27, 12, 479844)})"]
+(hbnb) update BaseModel 91bb5832-c974-4fe0-bc8c-232dbf137b68 first_name "Betty"
+(hbnb) show BaseModel 91bb5832-c974-4fe0-bc8c-232dbf137b68
+[BaseModel] (91bb5832-c974-4fe0-bc8c-232dbf137b68) ({'id': '91bb5832-c974-4fe0-bc8c-232dbf137b68', 'created_at': datetime.datetime(2023, 11, 2, 12, 27, 12, 479821), 'updated_at': datetime.datetime(2023, 11, 2, 12, 27, 12, 479844), 'first_name': 'Betty'})
+(hbnb) destroy BaseModel
+** instance id missing **
+(hbnb) destroy BaseModel 91bb5832-c974-4fe0-bc8c-232dbf137b68
+(hbnb) all
+[]
+(hbnb) EOF
+```
+
 ## 🛠️ Contributors
 
 - Carlos Carrasquillo \<collectornifty@gmail.com\> \<carlfrank\>
