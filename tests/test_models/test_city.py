@@ -1,23 +1,41 @@
-#!/usr/bin/python3
-"""Unittest for City class"""
-
 import unittest
 from models.city import City
-
+from models.base_model import BaseModel
 
 class TestCity(unittest.TestCase):
-
     def setUp(self):
-        """Set up for the tests"""
-        self.my_city = City()
-        self.my_city.state_id = "CA"
-        self.my_city.name = "San Francisco"
+        """Set up"""
+        self.city = City()
+
+    def test_name(self):
+        """Test name"""
+        self.assertEqual(self.city.name, '')
+
+    def test_state_id(self):
+        """Test state_id"""
+        self.assertEqual(self.city.state_id, '')
+
+    def test_inheritance(self):
+        """Test inheritance"""
+        self.assertIsInstance(self.city, BaseModel)
 
     def test_attributes(self):
-        """Test the attributes of City"""
-        self.assertEqual(self.my_city.state_id, "CA")
-        self.assertEqual(self.my_city.name, "San Francisco")
+        """Test attributes"""
+        self.assertTrue(hasattr(self.city, 'name'))
+        self.assertTrue(hasattr(self.city, 'state_id'))
+        self.assertTrue(hasattr(self.city, 'created_at'))
+        self.assertTrue(hasattr(self.city, 'updated_at'))
+        self.assertTrue(hasattr(self.city, 'id'))
 
+    def test_attribute_defaults(self):
+        """Test attribute defaults"""
+        self.assertEqual(self.city.name, '')
+        self.assertEqual(self.city.state_id, '')
+
+    def test_str(self):
+        """Test str"""
+        expected = f"[{type(self.city).__name__}] ({self.city.id}) {str(self.city.__dict__)}"
+        self.assertEqual(str(self.city), expected)
 
 if __name__ == '__main__':
     unittest.main()

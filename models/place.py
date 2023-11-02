@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-"""User module"""
+""" Place Module for HBNB project """
 
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """Place class inheriting BaseModel"""
-
+    """ Class of place """
     city_id = ""
     user_id = ""
     name = ""
@@ -18,3 +17,7 @@ class Place(BaseModel):
     latitude = 0.0
     longitude = 0.0
     amenity_ids = []
+
+    def __str__(self):
+        """str method\n"""
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
