@@ -35,13 +35,13 @@ or not on the class name.
 []
 
 (hbnb) create Basemodel
-** class doesn't exist **
+** class doesn\'t exist **
 
 (hbnb) create BaseModel
 876b98f1-58a6-4876-9b19-93bfdc67f0f8
 
 (hbnb) all BaseModel
-["[BaseModel] (876b98f1-58a6-4876-9b19-93bfdc67f0f8) ({'id': '876b98f1-58a6-4876-9b19-93bfdc67f0f8', 'created_at': datetime.datetime(2023, 11, 1, 15, 43, 51, 289859), 'updated_at': datetime.datetime(2023, 11, 1, 15, 43, 51, 289890)})"]
+[\"[BaseModel] (876b98f1-58a6-4876-9b19-93bfdc67f0f8) ({'id': '876b98f1-58a6-4876-9b19-93bfdc67f0f8', 'created_at': datetime.datetime(2023, 11, 1, 15, 43, 51, 289859), 'updated_at': datetime.datetime(2023, 11, 1, 15, 43, 51, 289890)})\"]
 
 (hbnb)EOF
 guillep2018@guillep2018-ThinkPad-X1-Carbon-Gen-9:~/Desktop/coding-fridays/holbertonschool-AirBnB_clone$
@@ -153,6 +153,11 @@ $ echo "destroy BaseModel 2bf3b876-a27e-458a-be88-360c6ea97b74" | ./console.py
 
 $ echo "all" | ./console.py
 (hbnb) []
+```
+## Requirements
+
+```bash
+-python3 (version 3.8.5)
 ```
 
 ## 🛠️ Contributors
