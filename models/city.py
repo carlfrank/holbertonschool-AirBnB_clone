@@ -9,6 +9,6 @@ class City(BaseModel):
     state_id = ""
     name = ""
 
-def __str__(self):
-        """Returns a string representation of the City instance."""
+    def __str__(self):
+        """Returns a string representation of the Amenity instance."""
         return f"[{type(self).__name__}] ({self.id}) {self.__dict__}"
