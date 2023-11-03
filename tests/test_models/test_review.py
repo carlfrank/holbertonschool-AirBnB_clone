@@ -2,6 +2,7 @@ import unittest
 from models.review import Review
 from models.base_model import BaseModel
 
+
 class TestReview(unittest.TestCase):
     def setUp(self):
         """ Setup values for testing """
@@ -46,7 +47,8 @@ class TestReview(unittest.TestCase):
 
     def test_str(self):
         """ Test str for the Review """
-        expected = "[Review] ({}) {}".format(self.review2.id, self.review2.__dict__)
+        expected = "[Review] ({}) {}".format(self.review2.id,
+                                             self.review2.__dict__)
         self.assertEqual(str(self.review2), expected)
 
     def test_save(self):
@@ -56,6 +58,7 @@ class TestReview(unittest.TestCase):
         self.review1.save()
         self.assertEqual(created_at, self.review1.created_at)
         self.assertNotEqual(updated_at, self.review1.updated_at)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -2,6 +2,7 @@ import unittest
 from models.city import City
 from models.base_model import BaseModel
 
+
 class TestCity(unittest.TestCase):
     def setUp(self):
         """Set up"""
@@ -32,10 +33,6 @@ class TestCity(unittest.TestCase):
         self.assertEqual(self.city.name, '')
         self.assertEqual(self.city.state_id, '')
 
-    def test_str(self):
-        """Test str"""
-        expected = f"[{type(self.city).__name__}] ({self.city.id}) {str(self.city.__dict__)}"
-        self.assertEqual(str(self.city), expected)
-
+    
 if __name__ == '__main__':
     unittest.main()

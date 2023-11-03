@@ -4,6 +4,7 @@ import unittest
 from models.state import State
 from models.base_model import BaseModel
 
+
 class TestState(unittest.TestCase):
     def setUp(self):
         """ Setup values for testing """
@@ -41,7 +42,8 @@ class TestState(unittest.TestCase):
 
     def test_str(self):
         """ Test str for the State """
-        expected = "[State] ({}) {}".format(self.state2.id, self.state2.__dict__)
+        expected = "[State] ({}) {}".format(self.state2.id,
+                                            self.state2.__dict__)
         self.assertEqual(str(self.state2), expected)
 
     def test_save(self):

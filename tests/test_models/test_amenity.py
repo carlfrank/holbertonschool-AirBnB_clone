@@ -4,6 +4,7 @@ import unittest
 from models.amenity import Amenity
 from models.base_model import BaseModel
 
+
 class TestAmenity(unittest.TestCase):
     def setUp(self):
         """ Setup values for testing """
@@ -51,6 +52,7 @@ class TestAmenity(unittest.TestCase):
         self.amenity1.save()
         self.assertEqual(created_at, self.amenity1.created_at)
         self.assertNotEqual(updated_at, self.amenity1.updated_at)
+
 
 if __name__ == '__main__':
     unittest.main()

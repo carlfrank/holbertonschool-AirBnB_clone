@@ -2,6 +2,7 @@ import unittest
 from models.place import Place
 from models.base_model import BaseModel
 
+
 class TestPlace(unittest.TestCase):
     def setUp(self):
         """ Setup values for testing """
@@ -49,7 +50,8 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(self.place1.price_by_night, 0)
         self.assertEqual(self.place1.latitude, 0.0)
         self.assertEqual(self.place1.longitude, 0.0)
-        self.assertEqual(self.place1.amenity_ids, [])  # Change to an empty list
+        self.assertEqual(self.place1.amenity_ids, [])
+        # Change to an empty list
 
     def test_inheritance(self):
         """ Test inheritance from BaseModel """
@@ -78,7 +80,8 @@ class TestPlace(unittest.TestCase):
 
     def test_str(self):
         """ Test str for the Place """
-        expected = "[Place] ({}) {}".format(self.place2.id, self.place2.__dict__)
+        expected = "[Place] ({}) {}".format(self.place2.id,
+                                            self.place2.__dict__)
         self.assertEqual(str(self.place2), expected)
 
     def test_save(self):
@@ -88,6 +91,7 @@ class TestPlace(unittest.TestCase):
         self.place1.save()
         self.assertEqual(created_at, self.place1.created_at)
         self.assertNotEqual(updated_at, self.place1.updated_at)
+
 
 if __name__ == '__main__':
     unittest.main()
