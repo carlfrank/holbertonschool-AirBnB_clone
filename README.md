@@ -159,7 +159,7 @@ $ echo "all" | ./console.py
 ```bash
 -python3 (version 3.8.5)
    --Imports python
-        -Json
+        -json
         -cmd
         -os
         -uuid
