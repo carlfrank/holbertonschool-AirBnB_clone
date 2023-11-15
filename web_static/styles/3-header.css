@@ -5,13 +5,10 @@ header {
     border-bottom: 1px solid #CCCCCC;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     padding-left: 20px;
-}
-
-.header-logo {
-    background: url('../images/logo.png') no-repeat;
+    background-image: url('../images/logo.png');
+    background-repeat: no-repeat;
     background-size: contain; /* or specific dimensions */
-    background-position: center; /* adjust as needed */
-    width: 100px; /* Adjust to fit the size of your logo */
-    height: 70px; /* Adjust to fit the size of your logo */
+    background-position: 20px center; /* adjust as needed */
 }
