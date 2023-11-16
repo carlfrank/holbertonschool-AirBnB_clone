@@ -6,12 +6,12 @@
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px
-    padding-right: 30px;
 }
 
 .locations, .amenities {
     height: 100%;
     width: 25%;
+    position: relative; /* For dropdown positioning */
     font-weight: 600;
     display: flex;
     flex-direction: column;

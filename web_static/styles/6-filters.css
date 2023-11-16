@@ -5,7 +5,7 @@
     height: 70px;
     width: 100%;
     border: 1px solid #DDDDDD;
-    border-radius: 4px;
+    border-radius: 4px
 }
 
 .locations {
@@ -16,6 +16,11 @@
     height: 100%;
     width: 25%;
     position: relative; /* For dropdown positioning */
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding-left: 60px;
 }
 
 .locations h3, .amenities h3, .locations h2 {
@@ -26,7 +31,7 @@
 .locations h4, .amenities h4 {
     font-weight: 400;
     font-size: 14px;
-    margin: 0;
+    margin: 5px;
 }
 
 .popover {
