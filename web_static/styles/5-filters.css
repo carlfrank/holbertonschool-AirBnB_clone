@@ -9,7 +9,7 @@
 }
 
 .locations, .amenities {
-    height: 100%;
+    height: 60%;
     width: 25%;
     position: relative; /* For dropdown positioning */
     font-weight: 600;
