@@ -35,15 +35,14 @@
 }
 
 .popover {
-    display: none; /* Hidden by default */
-    position: absolute;
+    display: none;
+    box-sizing: border-box;
     background-color: #FAFAFA;
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
-    list-style-type: none; /* Removes bullet points */
+    list-style-type: none;
     padding: 10px;
-    z-index: 1; /* Ensures dropdown is on top */
 }
 
 .locations:hover .popover, .amenities:hover .popover {
@@ -66,7 +65,7 @@
     width: 20%;
     border: none;
     border-radius: 4px;
-    margin-left: auto; /* Pushes the button to the right */
+    margin-left: 150px; /* Pushes the button to the right */
     cursor: pointer;
     opacity: 1;
     transition: opacity 0.3s;

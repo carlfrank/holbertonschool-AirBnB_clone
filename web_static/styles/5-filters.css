@@ -42,7 +42,7 @@
     width: 20%;
     border: none;
     border-radius: 4px;
-    margin-left: auto; /* Pushes the button to the right */
+    margin-left: 150px; /* Pushes the button to the right */
     cursor: pointer;
     opacity: 1;
     transition: opacity 0.3s;
