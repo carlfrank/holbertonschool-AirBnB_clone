@@ -13,7 +13,7 @@
 
 }
 .locations, .amenities {
-    height: 60%;
+    height: 70%;
     width: 25%;
     position: relative; /* For dropdown positioning */
     font-weight: 600;
@@ -42,7 +42,7 @@
     border: 1px solid #DDDDDD;
     border-radius: 4px;
     list-style-type: none;
-    padding: 10px;
+    padding: 5px;
 }
 
 .locations:hover .popover, .amenities:hover .popover {
