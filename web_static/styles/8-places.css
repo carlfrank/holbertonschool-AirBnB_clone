@@ -126,12 +126,6 @@ article h2 {
     display: inline-block;
 }
 
-.number_bathrooms span {
-    position: relative;
-    top: 10px; 
-    display: inline-block;
-}
-
 .number_rooms{
     width: 100px;
     /* Other styles... */
